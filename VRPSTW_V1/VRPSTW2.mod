@@ -32,24 +32,14 @@ int TraMax[B] = ...; // tps de travail maximal d'un brancardier
 int Dmoyen[N][N] = ...; // Durée moyenne entre les missions (matrice des temps)
 
 int M = 100000;
-//int Z = 100;
-
+int R = ...;
 
 //*-------------------------------------------- Set of variables ----------------------------------------------*//
 // Variables de temps
 dvar int+ Tdep[N][B];  //heure de départ de la mission i pour le brancardier k
 dvar int+ Trdv2[N][B];
-
-//dvar int+ e[N][B]; // heure de départ (début de mission) au plus tôt
-//dvar int+ l[N][B]; // heure de départ (début de mission) au plus tard
  
 dvar boolean x[N][N][B]; // Choix du brancardier k pour j après i 
-
-/*dvar int+ s_moins[N][B]; // penalité négative tps de départ au plus tôt
-dvar int+ s_plus[N][B]; // pénalité positive tps de départ au plus tôt 
-
-dvar int+ f_plus[N][B]; // pénalité positive tps de départ au plus tard
-dvar int+ f_moins[N][B]; // pénalité négative tps de départ au plus tard*/
 
 dvar int+ t_plus[B]; // pénalité positive tps de travail d'un brancardier
 dvar int+ t_moins[B]; // pénalité négative tps de travail d'un brancardier
@@ -59,122 +49,101 @@ dvar int+ late[N][B]; // pénalité positive tps de rdv
 dvar int+ d[B]; // tps travaillé des brancardiers
 
 
-//*------------------------------- Objective function - Min de Temps trajet à vide -----------------------------*//
+//*------------------------------- Objective function - Min le retard et ajuster le travail -----------------------------*//
 //
-minimize (sum(j in N, k in B) (late[j][k]) + sum(k in B) (t_plus[k] + t_moins[k]));
+minimize (sum(i in N, k in B) (late[i][k]) + sum(k in B) (t_plus[k] + t_moins[k]));
 
 
 //*------------------------------------------- set of constraints ----------------------------------------------*//
 subject to {
 
-c0: 
+c1:
+	forall(j in N1) 
+	  	sum(i in N: i!=j, k in B) x[i][j][k] == 1;
+	  	
+c2:
+	forall(i in N1) 
+	  	sum(j in N: i!=j, k in B) x[i][j][k] == 1;
+
+c3:
+	forall(j in N2) 
+	  	sum(i in N: i!=j, k in B) x[i][j][k] == 2;
+	  	
+c4:
+	forall(i in N2) 
+	  	sum(j in N: i!=j, k in B) x[i][j][k] == 2;
+	  	
+c5:
+	forall(h in N, k in B)
+	  	sum(j in N) x[h][j][k] == sum(i in N) x[i][h][k];
+
+c6:
+	forall(k in B)
+	  	sum(i in N: i != 0) x[0][i][k] == 1;
+	  	
+c6a:
+	forall(i in N, j in N, k in B)
+	  	x[i][j][k] + x[j][i][k] <= 1;
+	  	
+c6b:
+	forall(k in B)
+	  	sum(i in N: i != 0) x[i][0][k] == 1;
+	  		  
+c7:
+	forall(k in B, l in B:k!=l) // couplée avec c8, inutile toute seule
+		d[k] + t_moins[k] - t_plus[k] == d[l] + t_moins[l] - t_plus[l];
+		
+/*c8: // rajoute beaucoup de temps de calcul: 2min - 5bran;  - 7bran --> charge de travail similaires pour tous les brancardiers (avec c3)
+	forall(k in B)
+		sum(i in N: i > 0, j in N: j != i) (D[i] + Dmoyen[i][j]) * x[i][j][k] == d[k];*/
+
+c9: // rajoute beaucoup moins de temps calcul que c8 --> donne le même nombre de trajets aux brancardiers
+	forall(k in B)
+		sum(i in N:i>0, j in N) x[i][j][k] == d[k]; 
+		
+c10:
+	forall(k in B)
+	  	sum(i in N, j in N: j != i) ((D[i] + Dmoyen[i][j]) * x[i][j][k]) <= TraMax[k]; 	
+
+c11:
+	forall(i in N, j in N: j>0, k in B)
+	  	(Trdv2[i][k] + Dmoyen[i][j]) + (x[i][j][k]-1) * M <= Tdep[j][k];
+	 	
+c12:
+	forall(i in N, j in N: j>0, k in B)
+	  	(Trdv2[j][k] - D[j]) + M*(1-x[i][j][k])>= Tdep[j][k];
+
+c13: 
 	forall(i in N, k in B)
 	  	Trdv2[i][k] - late[i][k] == Trdv[i];
 
-/*c1:
-	forall(i in N, k in B) 
-		e[i][k] + s_moins[i][k] - s_plus[i][k] >= Trdv2[i][k] - Dmax[i];
-		
-c2:
-	forall(i in N, k in B)
-		l[i][k] + f_moins[i][k] - f_plus[i][k] <= Trdv2[i][k] - Dmin[i];*/
-		
-c3:
-	forall(i in B, j in B) // couplée avec c17, inutile toute seule
-		d[i] + t_moins[i] - t_plus[i] == d[j] + t_moins[j] - t_plus[j];
-		
-c4:
+c14:
 	forall(i in N, k in B)
 	  	Trdv2[i][k] - late[i][k] <= Hfin_apm[k];
 
-c5:
+c15:
 	forall(i in N, k in B)
 	  	Tdep[i][k] >= Hdeb_mat[k];
 
-/*c6:
-	forall(i in N: i>0, k in B)
-	  	e[i][k] <= Tdep[i][k];
-
-c7:
-	forall(i in N: i>0, k in B)
-	  	l[i][k] >= Tdep[i][k];*/
-	  	
-c8:
-	forall(j in N1) // Vérifier que c'est pas grave qu'il y ait pas la mission 0
-	  	sum(i in N: i!=j, k in B) x[i][j][k] == 1;
-	  	
-c9:
-	forall(i in N1) // Vérifier que c'est pas grave qu'il y ait pas la mission 0
-	  	sum(j in N: i!=j, k in B) x[i][j][k] == 1;
-
-c10:
-	forall(j in N2) // Vérifier que c'est pas grave qu'il y ait pas la mission 0
-	  	sum(i in N: i!=j, k in B) x[i][j][k] == 2;
-	  	
-c11:
-	forall(i in N2) // Vérifier que c'est pas grave qu'il y ait pas la mission 0
-	  	sum(j in N: i!=j, k in B) x[i][j][k] == 2;
-
-c12:
-	forall(h in N, k in B)
-	  	sum(i in N) x[i][h][k] - sum(j in N) x[h][j][k] == 0;
-
-c13:
-	forall(k in B)
-	  	sum(i in N, j in N: j != i) ((D[i] + Dmoyen[i][j]) * x[i][j][k]) <= TraMax[k];
-
-c14:
-	forall(i in N, j in N: j>0, k in B)
-	  	(Trdv2[i][k] + Dmoyen[i][j]) + (x[i][j][k] - 1) * M <= Tdep[j][k];
-	  	
-c14bis:
-	forall(i in N, j in N: j>0, k in B)
-	  	(Trdv2[j][k] - D[j]) >= Tdep[j][k] + (x[i][j][k] - 1) * M;
-
-c16: // make sure returns to 0
-	forall(k in B)
-	  	sum(i in N: i != 0) x[i][0][k] == 1;
-
-/*c17: // rajoute beaucoup de temps de calcul: 2min - 5bran;  - 7bran --> charge de travail similaires pour tous les brancardiers (avec c3)
-	forall(k in B)
-		d[k] == sum(i in N: i > 0, j in N: j != i) (D[i] + Dmoyen[j][i]) * x[i][j][k];*/
-
-c17bis: // rajoute beaucoup moins de temps calcul que c17 --> donne le même nombre de trajets aux brancardiers
-	forall(k in B)
-		d[k] == sum(i in N: i > 0, j in N: j != i) x[i][j][k];
-
-c18: // trajet ne se fait que dans un sens
-	forall(i in N, j in N, k in B)
-	  	x[i][j][k] + x[j][i][k] <= 1;
-
-c21: 
+c21: // Heure de rdv ne peut pas être avant que le brancardier ne commence à travailler
 	forall(i in N, j in N: j!=0, k in B)
-	  	Trdv2[j][k] >= Hdeb_mat[k] * x[i][j][k];
-	  	
-/*c23:
-	forall(i in N, k in B)
-	  	!((Tdep[i][k] <= Hdeb_apm[k]) && (Tdep[i][k] >= Hfin_mat[k])) && !((Trdv2[i][k] <= Hdeb_apm[k]) && (Trdv2[i][k] >= Hfin_mat[k]))*/
-	  	
-/*c26:
-	forall(i in N, j in N, k in B)
-	  	!((Trdv2[i][k] <= Hdeb_apm[k]) && (Trdv2[i][k] >= Hfin_mat[k]));*/
-	  	
-c24:
+	  	Trdv2[j][k] >= Hdeb_mat[k] *x[i][j][k];
+  	
+c17:
 	forall(i in N, k in B)
 	  	((Tdep[i][k] <= Hfin_mat[k] - D[i]) && (Trdv2[i][k] <= Hfin_mat[k])) || ((Tdep[i][k] >= Hdeb_apm[k]) && (Trdv2[i][k] >= Hdeb_apm[k] + D[i]));
-/*c25:
-	forall(i in N, j in N, k in B)
-	  	(Tdep[i][k] <= Hfin_mat[k]) || (Tdep[i][k] >= Hdeb_apm[k]);
 	  	
-c27:
-	forall(i in N, j in N, k in B)
-	  	(Trdv2[i][k] <= Hfin_mat[k]) || (Trdv2[i][k] >= Hdeb_apm[k]);*/
-	  	
-c25:
-	forall(i in N2, k in B, l in B)
-	  Trdv2[i][k] == Trdv2[i][l];
-	  
+c18:
+	forall(i in N, j in N2, k in B, l in B:l!=k)
+	  	Tdep[j][k] <= Tdep[j][l] + M*(1-x[i][j][k]);
 
+c19:
+	forall(i in N, j in N:j!=i, k in B)
+	  	late[i][k] + M*(x[i][j][k] - 1) <= R;  
+
+c20:
+	forall(i in N, j in N, k in B)
+	  	late[i][k] + M*(1-x[i][j][k]) >= -R;
 }
 
 //Récupération du nombre de trajet global
