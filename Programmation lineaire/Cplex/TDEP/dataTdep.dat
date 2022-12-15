@@ -1,0 +1,51 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: nrogers
+ * Creation Date: 13 juil. 2022 at 10:32:26
+ *********************************************/
+
+NbMissions = 13; // Nb de missions
+NbMissions1 = 6; // Nb de missions
+NbBrancardiers = 4; // Nb de brancardiers
+R = [0,20,20,20,20,5,20,20,20,5,20,5,5,15]; // Retard ou avance max accepté
+
+Trdv = [0, 45, 72, 26, 45, 100, 43, 88, 40, 67, 73, 5, 20, 60]; // heures de rdv des missions
+
+
+D = [0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]; // Durée estimée des missions
+
+Hdeb_mat = [0, 0, 2, 0]; //, 5, 10, 30];//, 5, 10, 20];
+Hfin_mat = [40, 40, 45, 55]; //, 35, 35, 45];//, 100, 100, 100];
+Hdeb_apm = [60, 60, 65, 70]; //, 55, 55, 65];//, 5, 10, 20];
+Hfin_apm = [100, 100, 100, 100]; //, 100, 100, 100];//, 100, 100, 100];
+
+Dmoyen=[[ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // tps de trajet à vide entre 2 missions
+		[ 0, 0, 2, 2,10, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+		[ 0, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2,40, 2, 2],
+		[ 0, 2, 2, 0,10, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+		[ 0,56, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+		[ 0, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2, 2],
+		[ 0,30, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2, 2],
+		[ 0, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 2, 2, 2],
+		[ 0,10, 2, 2,10, 2, 5, 2, 0, 2, 2, 2, 2, 0],
+		[ 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 2, 2, 2],
+		[ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2],
+		[ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0,15, 2],
+		[ 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2],
+		[ 0, 2, 2, 2, 2, 2, 2, 2, 2, 0, 2, 2, 2, 0]];
+	
+TraMax = [300, 300, 300, 300]; //, 300, 300, 300];//, 25200, 25200, 25200];
+
+SheetConnection result("resultats.xlsx");
+md to SheetWrite(result, "A1");
+ma to SheetWrite(result, "B1");
+b to SheetWrite(result, "C1");
+m1 to SheetWrite(result,"A2:A1000");
+m2 to SheetWrite(result,"B2:B1000");
+bran to SheetWrite(result,"C2:C1000");
+tdep to SheetWrite(result,"D2:D1000");
+trdv to SheetWrite(result,"E2:E1000");
+trdv2 to SheetWrite(result,"I2:I1000");
+tdep2 to SheetWrite(result,"F2:F1000");
+hfin_mat to SheetWrite(result,"G2:G1000");
+hdeb_apm to SheetWrite(result,"H2:H1000");

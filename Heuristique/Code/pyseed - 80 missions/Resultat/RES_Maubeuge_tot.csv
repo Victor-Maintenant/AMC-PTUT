@@ -1,0 +1,81 @@
+ID;ID service provenance;ID service receveur;Temps moy;Heure de RDV;Nb Brancardiers;Retour;Mode de transport;ID brancardiers;Nom brancardiers;heure_depart;heure_depart_avant_retard;priorite;ordre;Retard
+3682;62;60;2220;07h40;2;0;Lit;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];07h13;07h03;5;0;10
+3683;62;60;2220;08h00;2;0;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];07h23;07h23;5;1;0
+3687;26;70;1860;08h10;1;0;Fauteuil;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];07h44;07h39;6;2;5
+3686;62;29;540;08h50;1;0;Fauteuil;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];08h41;08h41;5;3;0
+3696;18;60;420;09h20;2;0;Lit;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];09h13;09h13;5;4;0
+3689;60;51;600;09h33;1;1;Brancard;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];09h23;09h23;6;5;0
+3688;29;62;600;09h35;1;1;Fauteuil;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];09h25;09h25;6;6;0
+3692;60;51;600;09h49;1;1;Brancard;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];09h39;09h39;6;7;0
+3693;26;157;180;10h10;1;0;Brancard;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];10h07;10h07;1;8;0
+3694;26;157;180;10h10;2;0;Lit;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];10h07;10h07;1;9;0
+3695;26;157;180;10h13;2;0;Lit;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];10h10;10h10;1;10;0
+3698;26;157;180;10h17;1;0;Brancard;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];10h14;10h14;1;11;0
+3697;70;26;600;10h20;1;1;Fauteuil;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];10h25;10h10;6;12;15
+3678;110;81;300;10h30;1;0;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];10h25;10h25;0;13;0
+3701;26;70;1860;10h55;1;0;Fauteuil;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];10h24;10h24;6;14;0
+3699;60;51;600;10h43;1;1;Brancard;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];10h33;10h33;6;15;0
+3704;26;70;1860;11h10;1;0;Fauteuil;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];10h39;10h39;6;16;0
+3700;157;26;600;10h55;1;1;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];10h45;10h45;6;17;0
+3711;62;60;2220;11h35;2;0;Lit;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];11h08;10h58;5;18;10
+3703;81;110;600;11h00;1;1;Brancard;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];11h10;10h50;6;19;20
+3706;90;74;300;11h15;2;0;Lit;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];11h45;11h10;2;20;35
+3705;60;51;600;11h12;1;1;Brancard;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];11h12;11h02;6;21;10
+3707;60;62;600;11h16;2;1;Lit;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];11h36;11h06;6;22;30
+3709;60;62;600;11h30;1;1;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];11h45;11h20;6;23;25
+3690;18;301;180;11h25;1;0;Brancard;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];11h22;11h22;6;24;0
+3712;60;51;600;11h46;1;1;Brancard;['5', '7'];['DA SILVA Yohan', 'PATYNA Guy-Christian'];11h36;11h36;6;25;0
+3713;157;26;600;11h50;2;1;Lit;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];11h45;11h40;6;26;5
+3714;70;26;600;11h55;1;1;Fauteuil;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];11h45;11h45;6;27;0
+3715;301;18;600;12h00;1;1;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];12h00;11h50;6;28;10
+3710;86;828;300;12h00;1;0;Brancard;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];12h10;11h55;6;29;15
+3716;60;90;600;12h10;1;1;Brancard;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];12h05;12h00;6;30;5
+3717;60;51;600;12h12;1;1;Brancard;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];12h12;12h02;6;31;10
+3718;60;18;600;12h21;2;1;Lit;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];12h16;12h11;6;32;5
+3685;26;81;240;12h40;1;0;Fauteuil;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];12h36;12h36;0;33;0
+3720;828;86;600;12h40;1;1;Brancard;['6', '8'];['MOUCHERON Aurelien', 'TAOUTAOU Alain'];12h30;12h30;6;34;0
+3722;70;26;600;12h40;1;1;Fauteuil;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];12h30;12h30;6;35;0
+3724;60;51;600;12h46;1;1;Brancard;['5', '7'];['DA SILVA Yohan', 'PATYNA Guy-Christian'];12h36;12h36;6;36;0
+3684;26;81;240;12h55;1;0;Brancard;['3', '6'];['BRANCARDIER02 Utilisateur', 'MOUCHERON Aurelien'];12h51;12h51;0;37;0
+3725;60;51;600;13h04;1;1;Brancard;['4', '8'];['GRANDFILS Celine', 'TAOUTAOU Alain'];12h54;12h54;6;38;0
+3723;86;828;300;13h00;1;0;Brancard;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];12h55;12h55;6;39;0
+3679;26;81;240;13h15;2;0;Lit;['3', '6'];['BRANCARDIER02 Utilisateur', 'MOUCHERON Aurelien'];13h11;13h11;0;40;0
+3726;81;26;600;13h35;1;1;Fauteuil;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];13h25;13h25;6;41;0
+3669;86;81;360;13h55;1;0;Fauteuil;['1', '6'];['COCHELARD Jonathan', 'MOUCHERON Aurelien'];13h49;13h49;0;42;0
+3680;26;35;540;14h00;2;0;Lit;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];13h51;13h51;4;43;0
+3728;81;26;600;14h20;1;1;Brancard;['3', '7'];['BRANCARDIER02 Utilisateur', 'PATYNA Guy-Christian'];14h10;14h10;6;44;0
+3730;60;51;600;14h24;1;1;Brancard;['6', '8'];['MOUCHERON Aurelien', 'TAOUTAOU Alain'];14h14;14h14;6;45;0
+3702;26;81;240;14h30;1;0;Fauteuil;['1', '4'];['COCHELARD Jonathan', 'GRANDFILS Celine'];14h26;14h26;0;46;0
+3731;35;26;600;14h35;2;1;Lit;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];14h30;14h25;6;47;5
+3729;81;26;600;14h35;2;1;Lit;['3', '7'];['BRANCARDIER02 Utilisateur', 'PATYNA Guy-Christian'];14h30;14h25;6;48;5
+3732;62;29;540;14h45;2;0;Lit;['4', '8'];['GRANDFILS Celine', 'TAOUTAOU Alain'];14h41;14h36;5;49;5
+3719;25;157;240;15h00;2;0;Brancard;['1', '6'];['COCHELARD Jonathan', 'MOUCHERON Aurelien'];14h56;14h56;1;50;0
+3733;81;86;600;15h00;1;1;Fauteuil;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];14h50;14h50;6;51;0
+3736;29;62;600;15h05;2;1;Lit;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];14h55;14h55;6;52;0
+3727;26;157;180;15h15;1;0;Brancard;['1', '8'];['COCHELARD Jonathan', 'TAOUTAOU Alain'];15h12;15h12;1;53;0
+3734;81;26;600;15h15;1;1;Fauteuil;['4', '7'];['GRANDFILS Celine', 'PATYNA Guy-Christian'];15h10;15h05;6;54;5
+3681;26;35;540;15h30;2;0;Lit;['2', '6'];['BRANCARDIER01 Utilisateur', 'MOUCHERON Aurelien'];15h21;15h21;4;55;0
+3735;51;29;180;15h15;1;0;Brancard;['3', '5'];['BRANCARDIER02 Utilisateur', 'DA SILVA Yohan'];15h22;15h12;5;56;10
+3708;26;29;240;15h20;1;0;Brancard;['4', '7'];['GRANDFILS Celine', 'PATYNA Guy-Christian'];15h21;15h16;5;57;5
+3737;29;51;600;15h33;1;1;Brancard;['3', '5'];['BRANCARDIER02 Utilisateur', 'DA SILVA Yohan'];15h23;15h23;6;58;0
+3721;26;157;180;15h40;1;0;Brancard;['1', '8'];['COCHELARD Jonathan', 'TAOUTAOU Alain'];15h37;15h37;1;59;0
+3677;34;35;360;15h45;1;0;Fauteuil;['4', '7'];['GRANDFILS Celine', 'PATYNA Guy-Christian'];15h39;15h39;4;60;0
+3741;157;25;600;15h40;1;1;Brancard;['1', '6'];['COCHELARD Jonathan', 'MOUCHERON Aurelien'];15h45;15h30;6;61;15
+3740;60;28;600;15h45;1;1;Brancard;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];15h50;15h35;6;62;15
+3738;828;86;600;15h45;1;1;Brancard;['3', '8'];['BRANCARDIER02 Utilisateur', 'TAOUTAOU Alain'];15h55;15h35;6;63;20
+3743;157;26;600;15h50;1;1;Brancard;['1', '6'];['COCHELARD Jonathan', 'MOUCHERON Aurelien'];15h50;15h40;6;64;10
+3749;81;51;600;15h50;2;1;Valide;['1', '8'];['COCHELARD Jonathan', 'TAOUTAOU Alain'];15h55;15h40;6;65;15
+3739;51;81;180;16h00;1;0;Valide;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];15h57;15h57;0;66;0
+3676;26;35;540;16h00;2;0;Lit;['4', '6'];['GRANDFILS Celine', 'MOUCHERON Aurelien'];16h01;15h51;4;67;10
+3742;109;29;240;15h55;1;0;Fauteuil;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];16h01;15h51;5;68;10
+3744;35;26;600;16h03;1;1;Lit;['1', '3'];['COCHELARD Jonathan', 'BRANCARDIER02 Utilisateur'];15h58;15h53;6;69;5
+3746;29;109;600;16h20;1;1;Fauteuil;['2', '5'];['BRANCARDIER01 Utilisateur', 'DA SILVA Yohan'];16h10;16h10;6;70;0
+3753;34;29;1920;16h55;1;0;Fauteuil;['7', '8'];['PATYNA Guy-Christian', 'TAOUTAOU Alain'];16h23;16h23;5;71;0
+3745;35;34;600;16h25;1;1;Fauteuil;['4', '6'];['GRANDFILS Celine', 'MOUCHERON Aurelien'];16h15;16h15;6;72;0
+3747;171;29;240;16h30;2;0;Lit;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];16h31;16h26;5;73;5
+3748;60;51;600;16h30;1;1;Brancard;['4', '5'];['GRANDFILS Celine', 'DA SILVA Yohan'];16h40;16h20;6;74;20
+3750;60;51;600;16h30;1;1;Brancard;['1', '2'];['COCHELARD Jonathan', 'BRANCARDIER01 Utilisateur'];16h45;16h20;6;75;25
+3751;60;62;600;16h36;2;1;Lit;['1', '6'];['COCHELARD Jonathan', 'MOUCHERON Aurelien'];16h46;16h26;6;76;20
+3752;35;26;600;16h44;1;1;Lit;['3', '4'];['BRANCARDIER02 Utilisateur', 'GRANDFILS Celine'];16h39;16h34;6;77;5
+3754;29;34;600;17h10;1;1;Fauteuil;['2', '3'];['BRANCARDIER01 Utilisateur', 'BRANCARDIER02 Utilisateur'];17h00;17h00;6;78;0
+3755;29;171;600;17h15;2;1;Lit;['5', '6'];['DA SILVA Yohan', 'MOUCHERON Aurelien'];17h05;17h05;6;79;0

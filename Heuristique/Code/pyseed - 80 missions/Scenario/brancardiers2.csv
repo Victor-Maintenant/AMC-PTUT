@@ -1,0 +1,9 @@
+id;nom;travail_cumule;localisation;heure_debut_travail;heure_fin_matin;heure_debut_apres_midi;heure_fin_travail;heure_dispo
+1;COCHELARD Jonathan;0;33;07h00;11h00;11h30;18h00;07h00
+2;BRANCARDIER01 Utilisateur;0;33;07h00;11h00;11h30;18h00;07h00
+3;BRANCARDIER02 Utilisateur;0;33;07h00;11h00;11h30;18h00;07h00
+4;GRANDFILS Celine;0;33;07h00;11h00;11h30;18h00;07h00
+5;DA SILVA Yohan;0;33;07h00;11h00;11h30;18h00;07h00
+6;MOUCHERON Aurelien;0;33;07h30;11h30;12h00;18h00;07h30
+7;PATYNA Guy-Christian;0;33;07h30;11h30;12h00;18h00;07h30
+8;TAOUTAOU Alain;0;33;07h30;11h30;12h00;18h00;07h30

@@ -1,0 +1,130 @@
+MAIN FONCTIONS:
+
+//
+//Cette fonction retourne la liste des brancardiers disponible POUR un trajet
+//
+listeBrancardierPossible(trajet) :
+    br_possible <- tableau de brancardier vide
+    POUR chaque élément (b) dans la liste totale des brancardiers FAIRE
+        Si l'heure de départ est dans les horaires de b ALORS
+            Si b est disponible sur l'heure de départ ALORS
+                Ajoute b à br_possibles.
+    Trie du tableau br_possible sur le temps de trajet cumulé de chaque brancardier.
+    retourne br_possibles.
+
+
+//
+//Methode POUR affecter un ou deux brancardier(s) à un trajet
+//
+affecterBrancardierTrajet(trajet):
+    
+    br_possibles <- listeBrancardierPossible(trajet)
+    list_id <- tableau de int vide
+    list_noms <-tableau de String vide
+
+    SI br_possibles est vide ALORS
+        SI le nombre de brancardier pour le trajet = "1" ALORS
+            Définir l'id et le nom du brancardier devant faire le trajet à null.
+        SINON SI le nombre de brancardier pour le trajet = "2" ALORS
+            Définir l'id et le nom des deux brancardiers à null.
+    
+    POUR chaque élément (b) dans la liste des brancardiers FAIRE
+        SI br_possibles est vide ALORS
+            retourne 0.
+        SINON 
+            SI b = br_possibles[0] ALORS
+                Définir l'id et le nom du brancardier devant faire le trajet par l'id et le nom de b.
+                Mettre à jour l'heure de disponibilité du brancardier en foncgtion de l'heure du rdv du trajet.
+                Mettre à jour la localisation du brancardier en foncgtion du service d'arrivée du trajet.
+                Mettre à jour le travail cumulé du brancardier en y ajoutant le temps moyen du trajet.
+    
+    SI le nombre de brancardiers pour le trajet = "2" ALORS
+        SI la longueur de br_possibles = 1 ALORS
+            Définir l'id et le nom du brancardier devant faire le trajet à null.
+        SI la longueur de br_possibles plus grande ou égale à 2 ALORS
+            POUR chaque élément (b2) dans la liste des brancardiers FAIRE
+                SI b2 = br_possibles[1] ALORS
+                    Définir l'id et le nom du brancardier devant faire le trajet par l'id et le nom de b.
+                    Mettre à jour l'heure de disponibilité du brancardier en foncgtion de l'heure du rdv du trajet.
+                    Mettre à jour la localisation du brancardier en foncgtion du service d'arrivée du trajet.
+                    Mettre à jour le travail cumulé du brancardier en y ajoutant le temps moyen du trajet.
+
+
+//
+//Fonction permettant d'ajouter du retard à un départ de mission si aucun brancardier disponible
+//
+retard(trajet):
+
+    Récupère toutes les informations du trajet passé en paramètre,
+    ainsi que la liste des brancardiers qui sont disponibles.
+    TANT QUE la longueur de br_possible est plus petite que le nombre de brancardiers pour le trajet FAIRE
+        Augmente le retard et l'heure de départ du trajet.
+        Récupère la liste des brancardiers disponibles pour le trajet afin de retester la boucle.
+    POUR chaque élément (b) dans la liste de tous les brancardiers FAIRE
+        SI b = br_possible[0] ALORS
+            Définir l'id et le nom du brancardier devant faire le trajet par l'id et le nom de b.
+            Mettre à jour l'heure de disponibilité du brancardier en foncgtion de l'heure du rdv du trajet.
+            Mettre à jour la localisation du brancardier en foncgtion du service d'arrivée du trajet.
+            Mettre à jour le travail cumulé du brancardier en y ajoutant le temps moyen du trajet.
+        SINON SI b = br_possible[1] ALORS
+            Définir l'id et le nom du brancardier devant faire le trajet par l'id et le nom de b.
+            Mettre à jour l'heure de disponibilité du brancardier en foncgtion de l'heure du rdv du trajet en ajoutant un temps de manouvre.
+            Mettre à jour la localisation du brancardier en foncgtion du service d'arrivée du trajet.
+            Mettre à jour le travail cumulé du brancardier en y ajoutant le temps moyen du trajet.
+
+
+//
+//Fonction qui affecte les trajets, ainsi que le nombre total, au brancardier qui l'effectuera
+//
+affecterTrajetBrancardier():
+    
+    POUR chaque élément (b) dans la liste des brancardiers FAIRE
+        POUR chaque élément (t) dans la liste des trajets FAIRE
+            En fonction du nombre de brancardier, si le brancardier b est le brancardier 1 ou 2 d'un trajet 
+            on lui ajoute ce trajet à sa liste de missions.
+
+
+//
+//Methode qui affecte un ordre à une liste de trajets en fonction de la valeur de la colonne "priorite" 
+//et selon un écart de temps défini, dans colonne 'ordre'
+//
+triTrajets(listTrajets, tempsApresRdv, tempsAvantRdv):
+    
+    Trie la liste des trajets en fonction de l'heure depart 
+    
+    POUR chaque élément (t) dans listTrajets FAIRE
+        Crée une liste qui va contenir les trajets dont les heures de départ sont proches
+        Crée une liste qui va contenir les id des trajets dont les heure de départ sont proches
+        
+        Compare le trajet actuel avec les autres trajets pour définir une liste des trajet les plus proche en temps de départs. 
+        Trie listTrajetsProchedeTrajet par priorité.
+
+        POUR chaque élément (resElement) dans la liste des trajets les plus proches FAIRE
+            SI resElement est présent dans listeIDFinale ALORS 
+                Change l'élement dans la liste final à la place où il doit être en fonction de sa priorité.
+            SINON
+                Ajoute l'élément dans la liste finale à la fin de la liste.
+    
+    POUR chaque élément (f) dans listeIDFinale FAIRE
+        POUR chaque élément (t) dans listTrajets FAIRE            
+            SI t.ID = f ALORS
+               Affect à ce trajet son ordre de passage
+    retourne listTrajets
+
+
+//
+//Methode qui permet d'exécuter l'ensemble des autres fonctions pour un trajet, prioriser les trajets et les affectations 
+//
+def exec(liste,tempsApresRdv, tempsAvantRdv):
+  
+    POUR chaque trajet (d) dans liste passé en paramètre FAIRE
+        Détermine à partir du service de destination et de l'ordre de priorité des services, 
+        la priorite concernant la réalisation de ce trajet
+    triTrajets(liste,tempsApresRdv,tempsAvantRdv)
+    Trie de liste par rapport à l'ordre
+
+    POUR chaque élément (d) dans liste FAIRE
+        retard(d)
+    recupTravailBrancardier()
+    affecterTrajetBrancardier()
+    exportALL() // Rempli les fichier excel ou en base de données.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+    	
+    <version>1.0</version>
+    	
+    <configs>
+        		
+        <config default="true" name="Configuration 2" category="opl">
+            			
+            <ref name="VRPSTW_V3_reel.dat" type="data">
+			</ref>
+            			
+            <ref name="VRPSTW_V3.2.mod" type="model">
+			</ref>
+            			
+            <ref name="parametres.ops" type="setting">
+			</ref>
+            		
+        </config>
+        	
+    </configs>
+    	
+
+</project>

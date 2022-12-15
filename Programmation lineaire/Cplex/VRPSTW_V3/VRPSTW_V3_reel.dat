@@ -1,0 +1,49 @@
+/*********************************************
+ * OPL 22.1.0.0 Data
+ * Author: nrogers
+ * Creation Date: 27 juil. 2022 at 13:47:11
+ *********************************************/
+
+SheetConnection donnees("journee_maubeuge.xlsx");
+SheetConnection brancardiers("brancardiers.xlsx");
+SheetConnection matrice("matrice.xlsx");
+
+NbMissions from SheetRead(donnees, "W2"); // Nb de missions
+NbMissions1 from SheetRead(donnees, "V2"); // Nb de missions
+NbBrancardiers = 7; //from SheetRead(donnees, "X2"); // Nb de brancardiers
+
+R from SheetRead(donnees, "Y2:Y82");
+
+Hdeb_mat from SheetRead(brancardiers, "F2:F8"); // Heure de début de travail
+Hfin_mat from SheetRead(brancardiers, "H2:H8"); // Heure de début de travail
+Hdeb_apm from SheetRead(brancardiers, "J2:J8"); // Heure de début de travail
+Hfin_apm from SheetRead(brancardiers, "L2:L8"); // Heure de fin de travail
+
+D from SheetRead(donnees, "F2:F82"); // Durée estimée des missions
+
+Trdv from SheetRead(donnees, "I2:I82"); // heures de rdv des missions
+
+Dmoyen from SheetRead(matrice, "J4:CL84"); // tps de trajet à vide entre 2 missions
+	
+TraMax from SheetRead(brancardiers, "N2:N8");
+
+SheetConnection result("resultatsVRP_V3_reel.xlsx");
+b to SheetWrite(result, "A1");
+md to SheetWrite(result, "B1");
+ti to SheetWrite(result, "C1");
+trdvi to SheetWrite(result, "D1");
+ma to SheetWrite(result, "E1");
+tj to SheetWrite(result, "F1");
+trdvj to SheetWrite(result, "G1");
+lateC to SheetWrite(result, "J1");
+
+bran to SheetWrite(result,"A2:A1000");
+m1 to SheetWrite(result,"B2:B1000");
+tdep to SheetWrite(result,"C2:C1000");
+trdv to SheetWrite(result,"D2:D1000");
+m2 to SheetWrite(result,"E2:E1000");
+tdep2 to SheetWrite(result,"F2:F1000");
+trdv2 to SheetWrite(result, "G2:G1000");
+hfin_mat to SheetWrite(result, "H2:H1000");
+hdeb_apm to SheetWrite(result, "I2:I1000");
+lateCumu to SheetWrite(result, "J2");

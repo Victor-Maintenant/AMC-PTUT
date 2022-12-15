@@ -1,0 +1,6 @@
+id;nom;travail_cumule;localisation;heure_debut_travail;heure_fin_matin;heure_debut_apres_midi;heure_fin_travail;heure_dispo
+1;COCHELARD Jonathan;13140;26;07h00;11h00;11h30;18h00;16h55
+2;BRANCARDIER01 Utilisateur;13440;26;07h00;11h00;11h30;18h00;16h57
+3;BRANCARDIER02 Utilisateur;13560;29;07h00;11h00;11h30;18h00;17h17
+4;GRANDFILS Celine;13440;29;07h00;11h00;11h30;18h00;17h15
+5;DA SILVA Yohan;13020;51;07h00;11h00;11h30;18h00;16h32

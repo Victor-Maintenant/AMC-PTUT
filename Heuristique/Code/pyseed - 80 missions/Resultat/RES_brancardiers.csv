@@ -1,0 +1,9 @@
+id;nom;travail_cumule;localisation;heure_debut_travail;heure_fin_matin;heure_debut_apres_midi;heure_fin_travail;heure_dispo
+1;COCHELARD Jonathan;12300;62;07h00;11h00;11h30;18h00;16h38
+2;BRANCARDIER01 Utilisateur;12420;34;07h00;11h00;11h30;18h00;17h12
+3;BRANCARDIER02 Utilisateur;12300;34;07h00;11h00;11h30;18h00;17h10
+4;GRANDFILS Celine;12360;26;07h00;11h00;11h30;18h00;16h46
+5;DA SILVA Yohan;12420;171;07h00;11h00;11h30;18h00;17h15
+6;MOUCHERON Aurelien;12420;171;07h30;11h30;12h00;18h00;17h17
+7;PATYNA Guy-Christian;11880;29;07h30;11h30;12h00;18h00;16h55
+8;TAOUTAOU Alain;12180;29;07h30;11h30;12h00;18h00;16h57
